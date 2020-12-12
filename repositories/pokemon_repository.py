@@ -2,6 +2,7 @@ from db.run_sql import run_sql
 
 from models.pokemon import Pokemon
 from models.trainer import Trainer
+from models.nurse import Nurse
 
 def save(pokemon):
     sql = "INSERT INTO pokemons (name, trainer_id, nurse_id, species, hatched) VALUES (%s, %s, %s, %s, %s) RETURNING id"

@@ -5,3 +5,7 @@ class Pokemon:
         self.species = species
         self.hatched = hatched
         self.id = id
+        self.nurse = None
+
+    def assign_nurse(self, nurse):
+        self.nurse = nurse

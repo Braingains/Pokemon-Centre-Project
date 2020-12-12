@@ -8,10 +8,15 @@ import repositories.nurse_repository as nurse_repository
 
 
 trainer_1 = Trainer('Ritchie', '12 Pallet Town', 32356)
+nurse_1 = Nurse('Joy')
+pokemon_1 = Pokemon('Sparky', trainer_1, 'Pikachu', '15/6/2017')
+
+#assign nurse to pokemon before running console.py
+pokemon_1.assign_nurse(nurse_1)
+
 trainer_repository.save(trainer_1)
 
-pokemon_1 = Pokemon('Sparky', trainer_1, 'Pikachu', '15/6/2017')
+nurse_repository.save(nurse_1)
+
 pokemon_repository.save(pokemon_1)
 
-nurse_1 = Nurse('Joy')
-nurse_repository.save(nurse_1)
