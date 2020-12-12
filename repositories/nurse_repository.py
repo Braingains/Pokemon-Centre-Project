@@ -8,3 +8,12 @@ def save(nurse):
     results = run_sql( sql, values )
     nurse.id = results[0]['id']
     return nurse
+
+def select_all():
+    nurses = []
+    sql = "SELECT * FROM nurses"
+    results = run_sql(sql)
+    for result in results:
+        nurse = Nurse(result["name"], result["id"])
+        nurses.append(nurse)
+    return nurses
