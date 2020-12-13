@@ -8,3 +8,7 @@ pokemon_blueprint = Blueprint("pokemon", __name__)
 def pokemon():
     pokemons = pokemon_repository.select_all()
     return render_template("pokemons/index.html", pokemons = pokemons)
+
+@pokemon_blueprint.route("/pokemons/new")
+def new_pokemon():
+    return render_template("pokemons/new.html")

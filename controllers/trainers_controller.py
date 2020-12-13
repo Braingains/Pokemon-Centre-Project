@@ -8,3 +8,7 @@ trainer_blueprint = Blueprint("trainer", __name__)
 def trainer():
     trainers = trainer_repository.select_all()
     return render_template("trainers/index.html", trainers = trainers)
+
+@trainer_blueprint.route("/trainers/new")
+def new_trainer():
+    return render_template("trainers/new.html")

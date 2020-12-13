@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+This is where I assign a Nurse to a Pokemon
+
+
+<h2>Assign Nurse to Pokemon</h2>
+
+<form action="/nurses/new" method="POST">
+    <div>
+        <label for="nurse">Nurse:</label>
+        <select name="nurse_id" id="nurse">
+            {% for nurse in nurses %}
+            <option value="{{ nurse.id }}">
+                {{ nurse.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="pokemon">Pokemon:</label>
+        <select name="pokemon_id" id="pokemon">
+            {% for pokemon in pokemons %}
+            <option value="{{ pokemon.id }}">
+                {{ pokemon.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}
