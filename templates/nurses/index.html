@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-This is the Nurses index.
+<h2>Nurses</h2>
 
+{% for nurse in nurses %}
+
+<section>
+    <h3>{{ nurse.name }}</h3>
+    <p>{{ nurse.pokemon }}</p>
+    <a href="/nurse/{{ nurse.id }}/edit">Edit</a>
+    <form action="/nurse/{{ nurse.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
+{% endfor %}
 {% endblock %}
