@@ -6,6 +6,7 @@ class Pokemon:
         self.hatched = hatched
         self.id = id
         self.nurse = None
+        #add elemental type
 
     def assign_nurse(self, nurse):
         self.nurse = nurse
