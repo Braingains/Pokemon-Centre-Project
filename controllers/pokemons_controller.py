@@ -13,7 +13,8 @@ def pokemon():
 
 @pokemon_blueprint.route("/pokemons/new")
 def new_pokemon():
-    return render_template("/pokemons/new.html", pokemon = pokemon)
+    nurses = nurse_repository.select_all()
+    return render_template("/pokemons/new.html", pokemon = pokemon, nurses=nurses)
 
 @pokemon_blueprint.route('/pokemons/new', methods=['POST'])
 def create_pokemon():

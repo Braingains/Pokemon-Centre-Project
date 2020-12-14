@@ -21,18 +21,16 @@ This is where I can add a new Pokemon.
         <label for="hatched">Hatched:</label>
         <input type="text" id="hatched" name="hatched">
     </div>
-    <div>
+    <!-- <div>
         <label for="nurse">Nurse:</label>
         <input type="text" id="nurse" name="nurse">
-    </div>
-    <!-- <label for="nurse">Nurse:</label>
+    </div> -->
+    <label for="nurse">Nurse:</label>
         <select name="nurse_id" id="nurse">
             {% for nurse in nurses %}
-            <option value="{{ nurse.id }}">
-                {{ nurse.name }}
-            </option>
+        <option value="{{ nurse.id }}"> {{ nurse.name }} </option>
             {% endfor %}
-        </select> -->
+        </select>
     <div>
         <input type="submit">
     </div>

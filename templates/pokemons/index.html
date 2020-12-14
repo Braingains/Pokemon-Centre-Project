@@ -14,7 +14,7 @@
     <p>{{ pokemon.trainer }}</p>
     <p>{{ pokemon.species }}</p>
     <p>{{ pokemon.hatched }}</p>
-    <p>{{ pokemon.nurse }}</p>
+    <p>{{ pokemon.nurse.name }}</p>
     <a href="/pokemons/{{ pokemon.id }}/edit">Edit</a>
     <form action="/pokemons/{{ pokemon.id }}/delete" method="POST">
         <input type="submit" value="Delete">

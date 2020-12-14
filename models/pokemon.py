@@ -4,8 +4,8 @@ class Pokemon:
         self.trainer = trainer
         self.species = species
         self.hatched = hatched
-        self.id = id
         self.nurse = nurse
+        self.id = id
         #add elemental type
 
     def assign_nurse(self, nurse):

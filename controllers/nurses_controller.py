@@ -2,6 +2,7 @@ from flask import Blueprint, Flask, redirect, render_template, request
 from models.nurse import Nurse
 from models.pokemon import Pokemon
 
+import pdb
 import repositories.nurse_repository as nurse_repository
 import repositories.pokemon_repository as pokemon_repository
 
@@ -32,6 +33,8 @@ def assign_nurse():
     nurse = nurse_repository.select(nurse_id)
     pokemon = pokemon_repository.select(pokemon_id)
     nurse.assign_pokemon(pokemon)
+    # pdb.set_trace()
+    pokemon_repository.update(pokemon)
     return redirect('/nurses/index')
 
 @nurse_blueprint.route("/nurses/<id>/edit")
