@@ -16,7 +16,17 @@
 
 {% endfor %}
 
+<h2> Add a new Nurse</h2>
+<form action="/nurses/index" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <input type="submit">
+    </div>
+</form>
+
+
 <section>
-    <li><a href="/nurses/new">Add New Nurse</a></li>
+    <li><a href="/nurses/new">Assign Registered Pokemon to Nurse</a></li>
 </section>
 {% endblock %}

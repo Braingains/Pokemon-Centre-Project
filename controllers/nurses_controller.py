@@ -12,6 +12,13 @@ def nurse():
     nurses = nurse_repository.select_all()
     return render_template("nurses/index.html", nurses = nurses)
 
+@nurse_blueprint.route("/nurses/index", methods=["POST"])
+def create_nurse():
+    name = request.form["name"]
+    new_nurse = Nurse(name)
+    nurse_repository.save(new_nurse)
+    return redirect("/nurses/index")
+
 @nurse_blueprint.route("/nurses/new", methods=['GET'])
 def new_nurse():
     nurses = nurse_repository.select_all()
