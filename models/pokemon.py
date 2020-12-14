@@ -10,3 +10,6 @@ class Pokemon:
 
     def assign_nurse(self, nurse):
         self.nurse = nurse
+
+
+#add notes to Pokemon with its injury, it can be edited by nurses to track treatment

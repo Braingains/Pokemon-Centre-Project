@@ -1,11 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Update a Nurse</h2>
 
-<form action="/pokemons/{{ pokemon.id }}" method="POST">
+<h2>Update a Pokemon</h2>
+
+
+{% for pokemon in pokemons %}
+<section>
+    <h3>{{ pokemon.name }}</h3>
+    <p>{{ pokemon.trainer }}</p>
+    <p>{{ pokemon.species }}</p>
+    <p>{{ pokemon.hatched }}</p>
+    <p>{{ pokemon.nurse.name }}</p>
+</section>
+
+
+{% endfor %}
+
+<form action="/pokemons/new" method="POST">
     <div>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{ pokemon.name }}">
+        <input type="text" id="name" name="name" value= "{{ pokemon.name }}">
+    </div>
+    <div>
+        <label for="trainer">Trainer:</label>
+        <input type="text" id="trainer" name="trainer" value= "{{ pokemon.trainer }}">
+    </div>
+    <div>
+        <label for="species">Species:</label>
+        <input type="text" id="species" name="species" value= "{{ pokemon.species }}">
+    </div>
+    <div>
+        <label for="hatched">Date Hatched:</label>
+        <input type="text" id="hatched" name="hatched" value= "{{ pokemon.hatched }}">
+    </div>
+    <label for="nurse">Nurse:</label>
+        <select name="nurse_id" id="nurse">
+            {% for nurse in nurses %}
+        <option value="{{ nurse.id }}"> {{ nurse.name }} </option>
+            {% endfor %}
+        </select>
+    <div>
         <input type="submit">
     </div>
 </form>
