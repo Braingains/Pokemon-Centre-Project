@@ -11,29 +11,38 @@ def pokemon():
     pokemons = pokemon_repository.select_all()
     return render_template("pokemons/index.html", pokemons = pokemons)
 
-@pokemon_blueprint.route("/pokemons/new",  methods=['POST'])
+@pokemon_blueprint.route("/pokemons/new")
+def new_pokemon():
+    return render_template("/pokemons/new.html", pokemon = pokemon)
+
+@pokemon_blueprint.route('/pokemons/new', methods=['POST'])
 def create_pokemon():
     name = request.form["name"]
     trainer = request.form["trainer"]
     species = request.form["species"]
     hatched = request.form["hatched"]
-    new_pokemon = Pokemon(name, trainer, species, hatched)
+    nurse = request.form['nurse']
+    new_pokemon = Pokemon(name, trainer, species, hatched, nurse)
     pokemon_repository.save(new_pokemon)
-    return redirect("/pokemons/index")
+    return redirect('/pokemons/index')
 
 @pokemon_blueprint.route("/pokemon/<id>/edit")
 def edit_pokemon(id):
     pokemons = pokemon_repository.select(id)
     return render_template('pokemons/edit.html', pokemons=pokemons)
 
-# @nurse_blueprint.route("/nurses/<id>/edit", methods=["POST"])
-# def update_nurse(id):
-#     name = request.form["name"]
-#     nurse = Nurse(name, id)
-#     nurse_repository.update(nurse)
-#     return redirect("/nurses/index")
+@pokemon_blueprint.route("/pokemon/<id>/edit", methods=["POST"])
+def update_pokemon(id):
+    name = request.form["name"]
+    trainer = request.form['trainer']
+    species = request.form['species']
+    hatched = request.form['hatched']
+    nurse = request.form['nurse']
+    pokemon = Pokemon(name, trainer, species, hatched, id, nurse)
+    pokemon_repository.update(pokemon)
+    return redirect("/pokemon/index")
 
-@pokemon_blueprint.route("/pokemon/<id>/delete", methods=["POST"])
+@pokemon_blueprint.route("/pokemons/<id>/delete", methods=["POST"])
 def delete_pokemon(id):
     pokemon_repository.delete(id)
     return redirect("/pokemons/index")

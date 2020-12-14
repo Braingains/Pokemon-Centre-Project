@@ -8,7 +8,7 @@ def save(pokemon):
     sql = "INSERT INTO pokemons (name, trainer, nurse, species, hatched) VALUES (%s, %s, %s, %s, %s) RETURNING id"
     values = [pokemon.name, pokemon.trainer, pokemon.nurse, pokemon.species, pokemon.hatched]
     results = run_sql( sql, values )
-    id = results[0]['id']
+    pokemon.id = results[0]['id']
     return pokemon
 
 def select_all():
@@ -17,7 +17,7 @@ def select_all():
     sql = "SELECT * FROM pokemons"
     results = run_sql(sql)
     for row in results:
-        pokemon = Pokemon(row['name'], row['trainer'], row['species'], row['hatched'], row['id'])
+        pokemon = Pokemon(row['name'], row['trainer'], row['species'], row['hatched'], row['nurse'], row['id'])
         pokemons.append(pokemon)
     return pokemons
 
@@ -28,13 +28,14 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        pokemon = Pokemon(result['name'], result['trainer'], result['species'], result['hatched'], result['id'])
+        pokemon = Pokemon(result['name'], result['trainer'], result['species'], result['hatched'], result['nurse'],result['id'])
     return pokemon 
 
 def update(pokemon):
-    sql = "UPDATE pokemons SET (name, trainer, nurse_id, species, hatched) = (%s, %s, %s, %s, %s) WHERE id = %s"
-    values = [pokemon.name, pokemon.trainer, pokemon.nurse.id, pokemon.species, pokemon.hatched]
+    sql = "UPDATE pokemons SET (name, trainer, nurse, species, hatched) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [pokemon.name, pokemon.trainer, pokemon.nurse, pokemon.species, pokemon.hatched]
     run_sql(sql, values)
+
 
 def delete(id):
     sql = "DELETE FROM pokemons WHERE id = %s"

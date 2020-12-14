@@ -18,6 +18,7 @@ pokemon_1 = Pokemon('Sparky', 'trainer_1', 'Pikachu', '15/6/2017', 'Nurse')
 pokemon_2 = Pokemon('Frankie', 'trainer_2', 'Psyduck', '12/1/2016', 'Nurse')
 pokemon_3 = Pokemon('Sally', 'trainer_2', 'Seel', '15/8/2015', 'Nurse')
 
+
 #assign nurse to pokemon before running console.py
 
 
