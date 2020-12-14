@@ -3,4 +3,25 @@
 
 This is where I can add a new Pokemon.
 
+<h2> Add a new Pokemon</h2>
+<form action="/pokemons/index" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label for="trainer">Trainer:</label>
+        <input type="text" id="trainer" name="trainer">
+    </div>
+    <div>
+        <label for="species">Species:</label>
+        <input type="text" id="species" name="species">
+    </div>
+    <div>
+        <label for="hatched">Hatched:</label>
+        <input type="text" id="hatched" name="hatched">
+    </div>
+<!-- need submit button -->
+</form>
+
 {% endblock %}

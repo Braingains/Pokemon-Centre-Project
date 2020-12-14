@@ -3,6 +3,10 @@
 
 <h2>Pokemon</h2>
 
+<section>
+    <li><a href="/pokemons/new">Add a new Pokemon to registry</a></li>
+</section>
+
 {% for pokemon in pokemons %}
 
 <section>
@@ -11,8 +15,8 @@
     <p>{{ pokemon.species }}</p>
     <p>{{ pokemon.hatched }}</p>
     <p>{{ pokemon.nurse }}</p>
-    <a href="/pokemon/{{ pokemon.id }}/edit">Edit</a>
-    <form action="/pokemon/{{ pokemon.id }}/delete" method="POST">
+    <a href="/pokemons/{{ pokemon.id }}/edit">Edit</a>
+    <form action="/pokemons/{{ pokemon.id }}/delete" method="POST">
         <input type="submit" value="Delete">
     </form>
 </section>
@@ -20,5 +24,5 @@
 
 {% endfor %}
 
-<li><a href="/pokemons/new">Add a new Pokemon</a></li>
+
 {% endblock %}
