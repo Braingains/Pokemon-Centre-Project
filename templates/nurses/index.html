@@ -8,8 +8,8 @@
 <section>
     <h3>{{ nurse.name }}</h3>
     <p>{{ nurse.pokemon }}</p>
-    <a href="/nurse/{{ nurse.id }}/edit">Edit</a>
-    <form action="/nurse/{{ nurse.id }}/delete" method="POST">
+    <a href="/nurses/{{ nurse.id }}/edit">Edit</a>
+    <form action="/nurses/{{ nurse.id }}/delete" method="POST">
         <input type="submit" value="Delete">
     </form>
 </section>

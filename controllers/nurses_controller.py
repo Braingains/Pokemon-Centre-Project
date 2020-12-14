@@ -33,3 +33,20 @@ def assign_nurse():
     pokemon = pokemon_repository.select(pokemon_id)
     nurse.assign_pokemon(pokemon)
     return redirect('/nurses/index')
+
+@nurse_blueprint.route("/nurses/<id>/edit")
+def edit_nurse(id):
+    nurse = nurse_repository.select(id)
+    return render_template('nurses/edit.html', nurse=nurse)
+
+@nurse_blueprint.route("/nurses/<id>/edit", methods=["POST"])
+def update_nurse(id):
+    name = request.form["name"]
+    nurse = Nurse(name, id)
+    nurse_repository.update(nurse)
+    return redirect("/nurses/index")
+
+@nurse_blueprint.route("/nurses/<id>/delete", methods=["POST"])
+def delete_nurse(id):
+    nurse_repository.delete(id)
+    return redirect("/nurses/index")
