@@ -14,9 +14,9 @@ nurse_repository.delete_all()
 # trainer_2 = Trainer('Misty', 'Cerulean Gym', 78232)
 nurse_1 = Nurse('Joy')
 nurse_2 = Nurse('Joye')
-pokemon_1 = Pokemon('Sparky', 'trainer_1', 'Pikachu', '15/6/2017', nurse_1)
-pokemon_2 = Pokemon('Frankie', 'trainer_2', 'Psyduck', '12/1/2016', nurse_1)
-pokemon_3 = Pokemon('Sally', 'trainer_2', 'Seel', '15/8/2015', nurse_2)
+pokemon_1 = Pokemon('Sparky', 'trainer_1', 'Pikachu', '15/6/2017', nurse_1, "Crushed by Snorlax")
+pokemon_2 = Pokemon('Frankie', 'trainer_2', 'Psyduck', '12/1/2016', nurse_1, "Burnt by Charizard")
+pokemon_3 = Pokemon('Sally', 'trainer_2', 'Seel', '15/8/2015', nurse_2, "Shocked by Pikachu")
 
 
 #assign nurse to pokemon before running console.py

@@ -31,6 +31,10 @@ This is where I can add a new Pokemon.
         <option value="{{ nurse.id }}"> {{ nurse.name }} </option>
             {% endfor %}
         </select>
+        <div>
+            <label for="notes">Treatment Notes:</label>
+            <input type="text" id="notes" name="notes" value= "{{ pokemon.notes }}">
+        </div>
     <div>
         <input type="submit">
     </div>

@@ -22,6 +22,7 @@ CREATE TABLE pokemons (
     -- trainer_id INT REFERENCES trainers(id) ON DELETE CASCADE, --> come back to this
     nurse_id INT REFERENCES nurses(id) ON DELETE CASCADE, --> come back to this, it might not be implemented correctly
     species VARCHAR(255),
-    hatched VARCHAR(255) --> potentially change for extensions
+    hatched VARCHAR(255), --> potentially change for extensions
+    notes VARCHAR(255)
 
 );

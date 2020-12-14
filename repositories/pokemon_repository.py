@@ -6,8 +6,8 @@ from models.nurse import Nurse
 import repositories.nurse_repository as nurse_repository
 
 def save(pokemon):
-    sql = "INSERT INTO pokemons (name, trainer, species, hatched, nurse_id) VALUES (%s, %s, %s, %s, %s) RETURNING id"
-    values = [pokemon.name, pokemon.trainer, pokemon.species, pokemon.hatched, pokemon.nurse.id]
+    sql = "INSERT INTO pokemons (name, trainer, species, hatched, nurse_id, notes) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
+    values = [pokemon.name, pokemon.trainer, pokemon.species, pokemon.hatched, pokemon.nurse.id, pokemon.notes]
     results = run_sql( sql, values )
     pokemon.id = results[0]['id']
     return pokemon
@@ -19,7 +19,7 @@ def select_all():
     results = run_sql(sql)
     for row in results:
         nurse = nurse_repository.select(row['nurse_id'])
-        pokemon = Pokemon(row['name'], row['trainer'], row['species'], row['hatched'], nurse, row['id'])
+        pokemon = Pokemon(row['name'], row['trainer'], row['species'], row['hatched'], nurse, row['notes'], row['id'])
         pokemons.append(pokemon)
     return pokemons
 
@@ -30,12 +30,12 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        pokemon = Pokemon(result['name'], result['trainer'], result['species'], result['hatched'], result['nurse_id'],result['id'])
+        pokemon = Pokemon(result['name'], result['trainer'], result['species'], result['hatched'], result['nurse_id'], result['notes'], result['id'])
     return pokemon 
 
 def update(pokemon):
-    sql = "UPDATE pokemons SET (name, trainer, nurse_id, species, hatched) = (%s, %s, %s, %s, %s) WHERE id = %s"
-    values = [pokemon.name, pokemon.trainer, pokemon.nurse.id, pokemon.species, pokemon.hatched]
+    sql = "UPDATE pokemons SET (name, trainer, nurse_id, species, hatched, notes) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [pokemon.name, pokemon.trainer, pokemon.nurse.id, pokemon.species, pokemon.hatched, pokemon.notes]
     run_sql(sql, values)
 
 

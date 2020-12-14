@@ -22,8 +22,9 @@ def create_pokemon():
     trainer = request.form["trainer"]
     species = request.form["species"]
     hatched = request.form["hatched"]
-    nurse = request.form['nurse']
-    new_pokemon = Pokemon(name, trainer, species, hatched, nurse)
+    nurse = request.form["nurse"]
+    notes = request.form["notes"]
+    new_pokemon = Pokemon(name, trainer, species, hatched, nurse, notes)
     pokemon_repository.save(new_pokemon)
     return redirect('/pokemons/index')
 
@@ -41,7 +42,8 @@ def update_pokemon(id):
     species = request.form['species']
     hatched = request.form['hatched']
     nurse = request.form['nurse']
-    pokemon = Pokemon(name, trainer, species, hatched, nurse) 
+    notes = request.form['notes']
+    pokemon = Pokemon(name, trainer, species, hatched, nurse, notes) 
     pokemon_repository.update(pokemon)
     return redirect("/pokemon/index", pokemon=pokemon, nurse=nurse)
 
