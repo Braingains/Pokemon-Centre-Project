@@ -18,8 +18,10 @@ CREATE TABLE trainers (
 CREATE TABLE pokemons (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    trainer_id INT REFERENCES trainers(id) ON DELETE CASCADE,
-    nurse_id INT REFERENCES nurses(id) ON DELETE CASCADE, --> come back to this, it might not be implemented correctly
+    trainer VARCHAR(255),
+    -- trainer_id INT REFERENCES trainers(id) ON DELETE CASCADE, --> come back to this
+    nurse VARCHAR(255),
+    -- nurse_id INT REFERENCES nurses(id) ON DELETE CASCADE, --> come back to this, it might not be implemented correctly
     species VARCHAR(255),
     hatched VARCHAR(255) --> potentially change for extensions
 

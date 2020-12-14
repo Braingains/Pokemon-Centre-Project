@@ -9,8 +9,8 @@
     <h3>{{ trainer.name }}</h3>
     <p>{{ trainer.address }}</p>
     <p>{{ trainer.pokenav }}</p>
-    <a href="/trainer/{{ trainer.id }}/edit">Edit</a>
-    <form action="/trainer/{{ trainer.id }}/delete" method="POST">
+    <a href="/trainers/{{ trainer.id }}/edit">Edit</a>
+    <form action="/trainers/{{ trainer.id }}/delete" method="POST">
         <input type="submit" value="Delete">
     </form>
 </section>

@@ -5,10 +5,10 @@ from models.trainer import Trainer
 from models.nurse import Nurse
 
 def save(pokemon):
-    sql = "INSERT INTO pokemons (name, trainer_id, nurse_id, species, hatched) VALUES (%s, %s, %s, %s, %s) RETURNING id"
-    values = [pokemon.name, pokemon.trainer.id, pokemon.nurse.id, pokemon.species, pokemon.hatched]
+    sql = "INSERT INTO pokemons (name, trainer, nurse, species, hatched) VALUES (%s, %s, %s, %s, %s) RETURNING id"
+    values = [pokemon.name, pokemon.trainer, pokemon.nurse, pokemon.species, pokemon.hatched]
     results = run_sql( sql, values )
-    pokemon.id = results[0]['id']
+    id = results[0]['id']
     return pokemon
 
 def select_all():
@@ -17,7 +17,7 @@ def select_all():
     sql = "SELECT * FROM pokemons"
     results = run_sql(sql)
     for row in results:
-        pokemon = Pokemon(row['name'], row['trainer_id'], row['species'], row['hatched'], row['id'])
+        pokemon = Pokemon(row['name'], row['trainer'], row['species'], row['hatched'], row['id'])
         pokemons.append(pokemon)
     return pokemons
 
@@ -28,12 +28,12 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        pokemon = Pokemon(result['name'], result['trainer_id'], result['species'], result['hatched'], result['id'])
+        pokemon = Pokemon(result['name'], result['trainer'], result['species'], result['hatched'], result['id'])
     return pokemon 
 
 def update(pokemon):
-    sql = "UPDATE pokemons SET (name, trainer_id, nurse_id, species, hatched) = (%s, %s, %s, %s, %s) WHERE id = %s"
-    values = [pokemon.name, pokemon.trainer.id, pokemon.nurse.id, pokemon.species, pokemon.hatched]
+    sql = "UPDATE pokemons SET (name, trainer, nurse_id, species, hatched) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [pokemon.name, pokemon.trainer, pokemon.nurse.id, pokemon.species, pokemon.hatched]
     run_sql(sql, values)
 
 def delete(id):
@@ -44,3 +44,6 @@ def delete(id):
 def delete_all():
     sql = "DELETE FROM pokemons"
     run_sql(sql)
+
+
+# add pokemon.trainer_id connections later

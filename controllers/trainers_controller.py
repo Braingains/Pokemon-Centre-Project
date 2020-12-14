@@ -12,3 +12,8 @@ def trainer():
 @trainer_blueprint.route("/trainers/new")
 def new_trainer():
     return render_template("trainers/new.html")
+
+@trainer_blueprint.route("/trainers/<id>/delete", methods=["POST"])
+def delete_trainer(id):
+    trainer_repository.delete(id)
+    return redirect("/trainers/index")

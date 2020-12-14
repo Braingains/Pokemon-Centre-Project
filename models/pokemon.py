@@ -1,11 +1,11 @@
 class Pokemon:
-    def __init__(self, name, trainer, species, hatched, id = None):
+    def __init__(self, name, trainer, species, hatched, nurse, id = None):
         self.name = name
         self.trainer = trainer
         self.species = species
         self.hatched = hatched
         self.id = id
-        self.nurse = None
+        self.nurse = nurse
         #add elemental type
 
     def assign_nurse(self, nurse):
