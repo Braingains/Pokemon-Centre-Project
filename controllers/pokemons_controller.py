@@ -22,7 +22,8 @@ def create_pokemon():
     trainer = request.form["trainer"]
     species = request.form["species"]
     hatched = request.form["hatched"]
-    nurse = request.form["nurse"]
+    nurse_id = request.form["nurse_id"]
+    nurse = nurse_repository.select(nurse_id)
     notes = request.form["notes"]
     new_pokemon = Pokemon(name, trainer, species, hatched, nurse, notes)
     pokemon_repository.save(new_pokemon)
