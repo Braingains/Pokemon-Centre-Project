@@ -3,6 +3,7 @@ from models.pokemon import Pokemon
 import repositories.pokemon_repository as pokemon_repository
 import repositories.nurse_repository as nurse_repository
 import repositories.trainer_repository as trainer_repository
+import pdb
 
 pokemon_blueprint = Blueprint("pokemon", __name__)
 
@@ -37,16 +38,18 @@ def edit_pokemon(id):
 
 @pokemon_blueprint.route("/pokemons/<id>/edit", methods=["POST"])
 def update_pokemon(id):
-    pokemons = pokemon_repository.select_all()
+    pokemon = pokemon_repository.select(id)
     name = request.form["name"]
     trainer = request.form['trainer']
     species = request.form['species']
     hatched = request.form['hatched']
-    nurse = request.form['nurse']
+    nurse_id = request.form['nurse_id']
+    nurse = nurse_repository.select(nurse_id)
     notes = request.form['notes']
-    pokemon = Pokemon(name, trainer, species, hatched, nurse, notes) 
+    pokemon = Pokemon(name, trainer, species, hatched, nurse, notes)
+    pokemon.id = id
     pokemon_repository.update(pokemon)
-    return redirect("/pokemon/index", pokemon=pokemon, nurse=nurse)
+    return redirect("/pokemons/index")
 
 @pokemon_blueprint.route("/pokemons/<id>/delete", methods=["POST"])
 def delete_pokemon(id):

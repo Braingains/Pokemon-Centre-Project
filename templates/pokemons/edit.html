@@ -16,7 +16,7 @@
 
 {% endfor %}
 
-<form action="/pokemons/new" method="POST">
+<form action="/pokemons/{{pokemon.id}}/edit" method="POST">
     <div>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value= "{{ pokemon.name }}">

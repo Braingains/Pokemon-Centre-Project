@@ -5,6 +5,7 @@ from models.trainer import Trainer
 from models.nurse import Nurse
 import repositories.nurse_repository as nurse_repository
 
+import pdb
 def save(pokemon):
     sql = "INSERT INTO pokemons (name, trainer, species, hatched, nurse_id, notes) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
     values = [pokemon.name, pokemon.trainer, pokemon.species, pokemon.hatched, pokemon.nurse.id, pokemon.notes]
@@ -35,8 +36,9 @@ def select(id):
 
 def update(pokemon):
     sql = "UPDATE pokemons SET (name, trainer, nurse_id, species, hatched, notes) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [pokemon.name, pokemon.trainer, pokemon.nurse.id, pokemon.species, pokemon.hatched, pokemon.notes]
+    values = [pokemon.name, pokemon.trainer, pokemon.nurse.id, pokemon.species, pokemon.hatched, pokemon.notes, pokemon.id]
     run_sql(sql, values)
+
 
 
 def delete(id):
