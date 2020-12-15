@@ -1,11 +1,14 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(sansation_light.woff);
+}
 body {
     background: url('/static/images/background.jpg');
     background-size: cover;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     color: #ffffff;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     padding: 0px;
     margin: 0px;
   }
-
-/* background image not showing for some reason.. */
