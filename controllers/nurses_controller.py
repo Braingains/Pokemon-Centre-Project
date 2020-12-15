@@ -44,8 +44,10 @@ def edit_nurse(id):
 
 @nurse_blueprint.route("/nurses/<id>/edit", methods=["POST"])
 def update_nurse(id):
+    nurse = nurse_repository.select(id)
     name = request.form["name"]
-    nurse = Nurse(name, id)
+    nurse = Nurse(name)
+    nurse.id = id
     nurse_repository.update(nurse)
     return redirect("/nurses/index")
 

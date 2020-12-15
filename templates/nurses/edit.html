@@ -2,7 +2,7 @@
 {% block content %}
 <h2>Update a Nurse</h2>
 
-<form action="/nurses/{{ nurse.id }}" method="POST">
+<form action="/nurses/{{ nurse.id }}/edit" method="POST">
     <div>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="{{ nurse.name }}">

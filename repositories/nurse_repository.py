@@ -29,8 +29,8 @@ def select(id):
     return nurse 
 
 def update(nurse):
-    sql = "UPDATE nurses SET (name) = (%s) WHERE id = %s"
-    values = [nurse.name]
+    sql = "UPDATE nurses SET name = %s WHERE id = %s"
+    values = [nurse.name, nurse.id]
     run_sql(sql, values)
 
 def delete(id):
