@@ -7,9 +7,10 @@
     <li><a href="/pokemons/new">Add a new Pokemon to registry</a></li>
 </section>
 
+
 {% for pokemon in pokemons %}
 
-<section>
+<section class="pokemon-list">
     <h3>Pokemon name: {{ pokemon.name }}</h3>
     <p>Trainer details: {{ pokemon.trainer }}</p>
     <p>Species: {{ pokemon.species }}</p>

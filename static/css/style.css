@@ -12,3 +12,9 @@ body {
     padding: 0px;
     margin: 0px;
   }
+
+.pokemon-list {
+  padding: 10px;
+  border-style: solid;
+  border-color: white;
+}

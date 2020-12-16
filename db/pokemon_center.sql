@@ -8,12 +8,12 @@ CREATE TABLE nurses (
 
 );
 
-CREATE TABLE trainers (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    address VARCHAR(255),
-    pokenav INT
-);
+-- CREATE TABLE trainers (
+--     id SERIAL PRIMARY KEY,
+--     name VARCHAR(255),
+--     address VARCHAR(255),
+--     pokenav INT
+-- );
 
 CREATE TABLE pokemons (
     id SERIAL PRIMARY KEY,
