@@ -14,7 +14,22 @@ body {
   }
 
 .pokemon-list {
-  padding: 10px;
-  border-style: solid;
+  padding: 5px;
+  border-style:ridge;
   border-color: white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+#site-header > h1 {
+  display: flex;
+  justify-content: center;
+}
+
+#site-header > nav > ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  justify-content: space-around;
 }
