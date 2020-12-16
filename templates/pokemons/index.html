@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 id="title">Pokemon</h2>
-
-<section>
-    <li><a href="/pokemons/new">Add a new Pokemon to registry</a></li>
-</section>
-
+<h2 id="title">Pokemon</h2> 
 
 {% for pokemon in pokemons %}
-
+<body>
 <section class="pokemon-list">
+    <div class="gallery">
+        <img src="/static/images/pikachu.jpeg" alt="Pikachu" width="300" height="200">
+      </a>
+    </div>
     <p>Pokemon name: <br> {{ pokemon.name }}</p>
     <p>Trainer details: {{ pokemon.trainer }}</p>
     <p>Species: {{ pokemon.species }}</p>
@@ -21,7 +20,7 @@
         <input type="submit" value="Delete">
     </form>
 </section>
-
+</body>
 
 {% endfor %}
 

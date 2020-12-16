@@ -28,6 +28,7 @@ body {
   border-style:solid;
   border-color: black;
   border-width: 10px;
+
 }
 
 .pokemon-list {
@@ -65,4 +66,16 @@ body {
   height: auto;
   border-radius: 10%;
   padding: 10px;
+}
+
+div.gallery {
+  margin: 5px;
+  float: left;
+  width: 180px;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+  padding: 5px;
 }
