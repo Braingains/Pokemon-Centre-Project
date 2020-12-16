@@ -11,13 +11,12 @@
 {% for pokemon in pokemons %}
 
 <section class="pokemon-list">
-    <h3>Pokemon name: {{ pokemon.name }}</h3>
+    <p>Pokemon name: <br> {{ pokemon.name }}</p>
     <p>Trainer details: {{ pokemon.trainer }}</p>
     <p>Species: {{ pokemon.species }}</p>
     <p>Date hatched: {{ pokemon.hatched }}</p>
-    <p>Pokemon assigned Nurse: {{ pokemon.nurse.name }}</p>
-    <p>Treatment notes: {{ pokemon.notes }}</p>
-    <a href="/pokemons/{{ pokemon.id }}/edit">Edit</a>
+    <p>Assigned Nurse: {{ pokemon.nurse.name }}</p>
+    <p>Edit / View Treatment Notes: <a href="/pokemons/{{ pokemon.id }}/edit">Notes</a>
     <form action="/pokemons/{{ pokemon.id }}/delete" method="POST">
         <input type="submit" value="Delete">
     </form>

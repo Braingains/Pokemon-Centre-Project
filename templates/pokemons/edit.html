@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Update a Pokemon</h2>
+<h2>Patient Information</h2>
 
 
 {% for pokemon in pokemons %}
@@ -16,7 +16,7 @@
 
 {% endfor %}
 
-<form action="/pokemons/{{pokemon.id}}/edit" method="POST">
+<form id="edit" action="/pokemons/{{pokemon.id}}/edit" method="POST">
     <div>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value= "{{ pokemon.name }}">
