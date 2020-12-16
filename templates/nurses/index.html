@@ -2,31 +2,38 @@
 {% block content %}
 
 <h2 id="title">Nurses</h2>
+<section class="nurse-info">
+    <h2> Add a new Nurse</h2>
+    <form action="/nurses/index" method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <input type="submit">
+        </div>
+    </form>
+    </section>
+
 
 {% for nurse in nurses %}
 
-<section>
+<section class="nurse-list">
+    <div class="gallery"></div>
     <h3>{{ nurse.name }}</h3>
     <!-- <p>{{ nurse.pokemon }}</p> -->
     <a href="/nurses/{{ nurse.id }}/edit">Edit</a>
+    <br>
     <form action="/nurses/{{ nurse.id }}/delete" method="POST">
         <input type="submit" value="Delete">
     </form>
+
 </section>
 
 {% endfor %}
 
-<h2 id="title"> Add a new Nurse</h2>
-<form action="/nurses/index" method="POST">
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-        <input type="submit">
-    </div>
-</form>
 
 
-<section>
+<!-- <section>
     <li><a href="/nurses/new">Assign Registered Pokemon to Nurse</a></li>
-</section>
+</section> -->
+
 {% endblock %}
