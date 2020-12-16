@@ -7,10 +7,11 @@
 {% for pokemon in pokemons %}
 <section>
     <h3>{{ pokemon.name }}</h3>
-    <p>{{ pokemon.trainer }}</p>
     <p>{{ pokemon.species }}</p>
     <p>{{ pokemon.hatched }}</p>
     <p>{{ pokemon.nurse.name }}</p>
+    <p>{{ pokemon.trainer }}</p>
+    <p>{{ pokemon.notes}} </p>
 </section>
 
 
@@ -19,15 +20,15 @@
 <form id="edit" action="/pokemons/{{pokemon.id}}/edit" method="POST">
     <div>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
+        <input type="text" id="name" name="name" value= "{{pokemon.name }}">
     </div>
     <div>
         <label for="species">Species:</label>
-        <input type="text" id="species" name="species">
+        <input type="text" id="species" name="species" value= "{{pokemon.species }}">
     </div>
     <div>
         <label for="hatched">Hatched:</label>
-        <input type="text" id="hatched" name="hatched">
+        <input type="text" id="hatched" name="hatched" value= "{{pokemon.hatched }}">
     </div>
     <label for="nurse">Assigned Nurse:</label>
         <select name="nurse_id" id="nurse">
@@ -38,12 +39,12 @@
         <br>
         <label for="trainer"> Trainer Info:</label>
         <br>
-        <textarea type="text" id="trainer" name="trainer" value= "{{ pokemon.trainer }}" rows="2" cols="20">
+        <textarea type="text" id="trainer" name="trainer" rows="2" cols="20">{{ pokemon.trainer }}
         </textarea>
         <div>
             <label for="notes">Treatment Notes:</label>
             <br>
-        <textarea type="text" id="notes" name="notes" value= "{{ pokemon.notes }}" rows="20" cols="50">
+        <textarea type="text" id="notes" name="notes" rows="20" cols="50">{{ pokemon.notes }}
         </textarea>
         <br><br>
         </div>
