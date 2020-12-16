@@ -2,6 +2,13 @@
   font-family: myFirstFont;
   src: url(sansation_light.woff);
 }
+
+a:visited {
+  color:blanchedalmond;
+  background-color: transparent;
+  text-decoration: none;
+}
+
 body {
     background: url('/static/images/background.jpg');
     background-size: cover;

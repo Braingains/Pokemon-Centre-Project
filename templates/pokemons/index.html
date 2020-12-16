@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 id="title">Pokemon</h2> 
+<h2 id="title">Pokémon</h2> 
 
 {% for pokemon in pokemons %}
 <body>
@@ -10,7 +10,7 @@
         <img src="/static/images/pikachu.jpeg" alt="Pikachu" width="300" height="200">
       </a>
     </div>
-    <p>Pokemon name: <br> {{ pokemon.name }}</p>
+    <p>Pokémon name: <br> {{ pokemon.name }}</p>
     <p>Trainer details: {{ pokemon.trainer }}</p>
     <p>Species: {{ pokemon.species }}</p>
     <p>Date hatched: {{ pokemon.hatched }}</p>
