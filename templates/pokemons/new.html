@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-This is where I can add a new Pokemon.
 
-<h2> Add a new Pokemon</h2>
-<form action="/pokemons/new" method="POST">
+<h2 id="title"> Add a new Pokemon</h2>
+<form id="add" action="/pokemons/new" method="POST">
     <div>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name">
@@ -25,15 +24,23 @@ This is where I can add a new Pokemon.
         <label for="nurse">Nurse:</label>
         <input type="text" id="nurse" name="nurse">
     </div> -->
-    <label for="nurse">Nurse:</label>
+    <label for="nurse">Assigned Nurse:</label>
         <select name="nurse_id" id="nurse">
             {% for nurse in nurses %}
         <option value="{{ nurse.id }}"> {{ nurse.name }} </option>
             {% endfor %}
         </select>
+        <br>
+        <label for="trainer"> Trainer Info:</label>
+        <br>
+        <textarea type="text" id="trainer" name="trainer" value= "{{ pokemon.trainer }}" rows="2" cols="20">
+        </textarea>
         <div>
             <label for="notes">Treatment Notes:</label>
-            <input type="text" id="notes" name="notes" value= "{{ pokemon.notes }}">
+            <br>
+        <textarea type="text" id="notes" name="notes" value= "{{ pokemon.notes }}" rows="20" cols="50">
+        </textarea>
+        <br><br>
         </div>
     <div>
         <input type="submit">

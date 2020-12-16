@@ -16,11 +16,19 @@ body {
   justify-content: center;
 }
 
-#welcome {
+#title {
   display: flex;
   justify-content: center;
 }
 
+#add {
+  max-width:57%;
+  margin: 20px;
+  padding: 20px;
+  border-style:solid;
+  border-color: black;
+  border-width: 10px;
+}
 
 .pokemon-list {
   max-width:57%;
