@@ -19,29 +19,33 @@
 <form id="edit" action="/pokemons/{{pokemon.id}}/edit" method="POST">
     <div>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value= "{{ pokemon.name }}">
-    </div>
-    <div>
-        <label for="trainer">Trainer:</label>
-        <input type="text" id="trainer" name="trainer" value= "{{ pokemon.trainer }}">
+        <input type="text" id="name" name="name">
     </div>
     <div>
         <label for="species">Species:</label>
-        <input type="text" id="species" name="species" value= "{{ pokemon.species }}">
+        <input type="text" id="species" name="species">
     </div>
     <div>
-        <label for="hatched">Date Hatched:</label>
-        <input type="text" id="hatched" name="hatched" value= "{{ pokemon.hatched }}">
+        <label for="hatched">Hatched:</label>
+        <input type="text" id="hatched" name="hatched">
     </div>
-    <label for="nurse">Nurse:</label>
+    <label for="nurse">Assigned Nurse:</label>
         <select name="nurse_id" id="nurse">
             {% for nurse in nurses %}
         <option value="{{ nurse.id }}"> {{ nurse.name }} </option>
             {% endfor %}
         </select>
+        <br>
+        <label for="trainer"> Trainer Info:</label>
+        <br>
+        <textarea type="text" id="trainer" name="trainer" value= "{{ pokemon.trainer }}" rows="2" cols="20">
+        </textarea>
         <div>
             <label for="notes">Treatment Notes:</label>
-            <input type="text" id="notes" name="notes" value= "{{ pokemon.notes }}" rows="4" cols="30">
+            <br>
+        <textarea type="text" id="notes" name="notes" value= "{{ pokemon.notes }}" rows="20" cols="50">
+        </textarea>
+        <br><br>
         </div>
     <div>
         <input type="submit">

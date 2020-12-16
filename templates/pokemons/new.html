@@ -9,10 +9,6 @@
         <input type="text" id="name" name="name">
     </div>
     <div>
-        <label for="trainer">Trainer:</label>
-        <input type="text" id="trainer" name="trainer">
-    </div>
-    <div>
         <label for="species">Species:</label>
         <input type="text" id="species" name="species">
     </div>
@@ -20,10 +16,6 @@
         <label for="hatched">Hatched:</label>
         <input type="text" id="hatched" name="hatched">
     </div>
-    <!-- <div>
-        <label for="nurse">Nurse:</label>
-        <input type="text" id="nurse" name="nurse">
-    </div> -->
     <label for="nurse">Assigned Nurse:</label>
         <select name="nurse_id" id="nurse">
             {% for nurse in nurses %}
